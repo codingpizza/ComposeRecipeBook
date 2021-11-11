@@ -15,6 +15,11 @@ import com.codingpizza.composerecipebook.ui.commoncomposables.RecipeSubtitle
 
 private const val ScreenTitle = "TextField Composable"
 
+object TextFieldRecipeScreen : Screen {
+    override val screenName: String = "TextField"
+
+}
+
 @Composable
 fun TextFieldScreen() {
     RecipeScaffold(screenTitle = ScreenTitle) {

@@ -1,3 +1,5 @@
 package com.codingpizza.composerecipebook.ui.screens
 
-sealed class Screen
+sealed interface Screen {
+    val screenName: String
+}

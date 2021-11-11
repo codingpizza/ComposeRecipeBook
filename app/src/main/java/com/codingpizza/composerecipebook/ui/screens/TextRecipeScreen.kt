@@ -9,11 +9,14 @@ import androidx.compose.ui.unit.dp
 import com.codingpizza.composerecipebook.ui.commoncomposables.RecipeScaffold
 import com.codingpizza.composerecipebook.ui.commoncomposables.RecipeSubtitle
 
-object TextRecipeScreen : Screen()
-
 private const val ScreenTitle = "Text Composable"
+
+object TextRecipeScreen : Screen {
+    override val screenName: String = "Text"
+}
+
 @Composable
-fun TextRecipeScreen() {
+fun TextScreen() {
     RecipeScaffold(screenTitle = ScreenTitle) {
         RecipeSubtitle(content = "Ejemplo basico de un Text composable")
         TextComposableExample()
@@ -41,5 +44,5 @@ fun TextComposableExamplePreview() {
 @Preview
 @Composable
 fun TextRecipeScreenPreview() {
-    TextRecipeScreen()
+    TextScreen()
 }
