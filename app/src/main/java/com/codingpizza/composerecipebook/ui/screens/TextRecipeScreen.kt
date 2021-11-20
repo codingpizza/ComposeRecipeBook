@@ -6,6 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.codingpizza.composerecipebook.ui.commoncomposables.ComposableExample
+import com.codingpizza.composerecipebook.ui.commoncomposables.ComposableExampleLazyColumn
 import com.codingpizza.composerecipebook.ui.commoncomposables.RecipeScaffold
 import com.codingpizza.composerecipebook.ui.commoncomposables.RecipeSubtitle
 
@@ -18,12 +20,21 @@ object TextRecipeScreen : Screen {
 @Composable
 fun TextScreen() {
     RecipeScaffold(screenTitle = ScreenTitle) {
-        RecipeSubtitle(content = "Ejemplo basico de un Text composable")
-        TextComposableExample()
-        RecipeSubtitle(content = "Text Composable con padding")
-        TextPaddingComposableExample()
+        ComposableExampleLazyColumn(items = composableList())
     }
 }
+
+@Composable
+private fun composableList(): List<ComposableExample> =
+    listOf(
+        ComposableExample(
+            title = "Text Composable basico",
+            composable = { TextComposableExample() }),
+        ComposableExample(
+            title = "Text Composable con padding",
+            composable = { TextPaddingComposableExample() }),
+    )
+
 
 @Composable
 fun TextComposableExample(dummyText: String = "Hello world") {
@@ -32,7 +43,10 @@ fun TextComposableExample(dummyText: String = "Hello world") {
 
 @Composable
 fun TextPaddingComposableExample(dummyText: String = "Hello world") {
-    Text(text = dummyText, modifier=  Modifier.padding(start = 16.dp,end = 16.dp,bottom = 16.dp,top = 16.dp))
+    Text(
+        text = dummyText,
+        modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 16.dp, top = 16.dp)
+    )
 }
 
 @Preview
