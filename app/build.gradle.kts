@@ -66,6 +66,8 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
     implementation("androidx.activity:activity-compose:1.4.0")
     implementation("androidx.compose.material:material:1.0.5")
+    implementation("io.coil-kt:coil-compose:1.4.0")
+
 
     //Hilt
     implementation ("com.google.dagger:hilt-android:2.38.1")
