@@ -13,7 +13,13 @@ import androidx.navigation.compose.rememberNavController
 import com.codingpizza.composerecipebook.ui.screens.*
 import com.codingpizza.composerecipebook.ui.theme.ComposeRecipeBookTheme
 
-val recipeList : List<Screen> = listOf(TextFieldRecipeScreen,TextRecipeScreen,ImageRecipeScreen,ListRecipeScreen)
+val recipeList: List<Screen> = listOf(
+    TextFieldRecipeScreen,
+    TextRecipeScreen,
+    ImageRecipeScreen,
+    ListRecipeScreen,
+    StickyHeaderRecipeScreen
+)
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +48,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = ListRecipeScreen.screenName) {
                             ListScreen()
+                        }
+                        composable(route = StickyHeaderRecipeScreen.screenName) {
+                            StickyHeaderScreen()
                         }
                     }
                 }
