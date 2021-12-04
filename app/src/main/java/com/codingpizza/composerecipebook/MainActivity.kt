@@ -18,7 +18,8 @@ val recipeList: List<Screen> = listOf(
     TextRecipeScreen,
     ImageRecipeScreen,
     ListRecipeScreen,
-    StickyHeaderRecipeScreen
+    StickyHeaderRecipeScreen,
+    GridListRecipeScreen
 )
 
 class MainActivity : ComponentActivity() {
@@ -51,6 +52,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = StickyHeaderRecipeScreen.screenName) {
                             StickyHeaderScreen()
+                        }
+                        composable(route = GridListRecipeScreen.screenName) {
+                            GridListScreen()
                         }
                     }
                 }
