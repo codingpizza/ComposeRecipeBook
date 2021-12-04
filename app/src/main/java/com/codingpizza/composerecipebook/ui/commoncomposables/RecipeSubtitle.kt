@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.sp
 fun RecipeSubtitle(content: String) {
     Text(
         text = content,
-        modifier = Modifier.padding(start = 16.dp, top = 16.dp, bottom = 16.dp),
+        modifier = Modifier.padding(start = 16.dp, top = 16.dp, bottom = 16.dp, end = 16.dp),
         fontSize = 16.sp,
         fontWeight = FontWeight.Bold
     )
