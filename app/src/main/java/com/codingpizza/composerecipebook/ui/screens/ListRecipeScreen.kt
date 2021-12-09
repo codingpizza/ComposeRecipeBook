@@ -23,7 +23,6 @@ private val ingredientList: List<String> = listOf(
 
 object ListRecipeScreen : Screen {
     override val screenName: String = "List"
-
 }
 
 @Composable
