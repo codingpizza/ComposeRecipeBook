@@ -9,5 +9,5 @@ fun recipeBookToolbar(title: String): @Composable () -> Unit = { ToolbarTitle(ti
 
 @Composable
 fun ToolbarTitle(title: String) {
-    Text(text = title, fontSize = 24.sp)
+    Text(text = title, fontSize = 16.sp)
 }

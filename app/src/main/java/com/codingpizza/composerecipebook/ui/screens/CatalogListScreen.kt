@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.codingpizza.composerecipebook.recipeList
+import com.codingpizza.composerecipebook.ui.commoncomposables.RecipeScaffold
 import com.codingpizza.composerecipebook.ui.theme.ComposeRecipeBookTheme
 
 object CatalogScreen : Screen {
@@ -23,9 +24,11 @@ object CatalogScreen : Screen {
 
 @Composable
 fun CatalogListScreen(content: List<Screen>, onItemClicked: (Screen) -> Unit) {
-    LazyColumn {
-        items(content) { recipe ->
-            RecipeItemRow(recipe,onItemClicked)
+    RecipeScaffold(screenTitle = "Compose Recipe Book") {
+        LazyColumn {
+            items(content) { recipe ->
+                RecipeItemRow(recipe, onItemClicked)
+            }
         }
     }
 }
