@@ -1,9 +1,9 @@
 package com.codingpizza.composerecipebook.ui.screens
 
-import androidx.compose.animation.Crossfade
-import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
@@ -12,10 +12,8 @@ import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.Delete
-import androidx.compose.material.icons.rounded.Lock
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import com.codingpizza.composerecipebook.ui.commoncomposables.ComposableExample
@@ -42,7 +40,7 @@ fun AnimatedTextComposable() {
     Box(
         modifier = Modifier
             .background(MaterialTheme.colors.primary)
-            .padding(start = 16.dp,top = 8.dp)
+            .padding(start = 16.dp, top = 8.dp)
             .animateContentSize()
     ) {
         Text(text = message)
@@ -83,10 +81,29 @@ fun CrossFadeComposable() {
     }
 }
 
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun AnimatedVisibilityComposable() {
+    var editable by remember { mutableStateOf(true) }
+    AnimatedVisibility(visible = editable) {
+        Column {
+            Text(text = "This is a very large text")
+
+            Button(onClick = {
+                editable = !editable
+            }, modifier = Modifier.padding(start = 16.dp, top = 8.dp)) {
+                Text(text = "Cerrar notificacion", color = MaterialTheme.colors.onPrimary)
+            }
+        }
+    }
+}
+
 fun getRandomText(): String = LoremIpsum().values.first().split(" ").shuffled().firstOrNull() ?: ""
 
 @Composable
 private fun composableList(): List<ComposableExample> = listOf(
     ComposableExample(title = "Animated Content size", composable = { AnimatedTextComposable() }),
     ComposableExample(title = "Crossfade Animation", composable = { CrossFadeComposable() }),
+    ComposableExample(title = "Animated Visibility - Experimental", composable = { AnimatedVisibilityComposable() }),
 )
