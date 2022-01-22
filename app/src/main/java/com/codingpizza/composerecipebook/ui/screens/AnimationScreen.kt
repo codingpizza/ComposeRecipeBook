@@ -4,6 +4,7 @@ import androidx.compose.animation.*
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Icon
@@ -36,7 +37,7 @@ fun AnimationRecipeScreen() {
 
 @Composable
 fun AnimatedTextComposable() {
-    var message by remember { mutableStateOf("Hello") }
+    var message by remember { mutableStateOf("Hola") }
     Box(
         modifier = Modifier
             .background(MaterialTheme.colors.primary)
@@ -47,9 +48,9 @@ fun AnimatedTextComposable() {
     }
 
     Button(onClick = {
-        message = "New message ${getRandomText()}"
+        message = "Nuevo mensaje ${getRandomText()}"
     }, modifier = Modifier.padding(start = 16.dp, top = 8.dp)) {
-        Text(text = "Update animation", color = MaterialTheme.colors.onPrimary)
+        Text(text = "Actualizar animacion", color = MaterialTheme.colors.onPrimary)
     }
 }
 
@@ -77,7 +78,7 @@ fun CrossFadeComposable() {
     Button(onClick = {
         currentPage = (if (currentPage == "Add") "Delete" else "Add")
     }, modifier = Modifier.padding(start = 16.dp, top = 8.dp)) {
-        Text(text = "Update animation", color = MaterialTheme.colors.onPrimary)
+        Text(text = "Actualizar animacion", color = MaterialTheme.colors.onPrimary)
     }
 }
 
@@ -88,13 +89,32 @@ fun AnimatedVisibilityComposable() {
     var editable by remember { mutableStateOf(true) }
     AnimatedVisibility(visible = editable) {
         Column {
-            Text(text = "This is a very large text")
+            Text(text = "Esto es un texto muy largo")
 
             Button(onClick = {
                 editable = !editable
             }, modifier = Modifier.padding(start = 16.dp, top = 8.dp)) {
                 Text(text = "Cerrar notificacion", color = MaterialTheme.colors.onPrimary)
             }
+        }
+    }
+}
+
+@OptIn(ExperimentalAnimationApi::class)
+@Composable
+fun AnimatedContentComposable() {
+    Column {
+        var count by remember { mutableStateOf(0) }
+
+        Row {
+            Text(text = "Contador", modifier = Modifier.padding(start = 16.dp, end = 16.dp))
+            AnimatedContent(targetState = count) { targetCount ->
+                Text(text = "$targetCount")
+            }
+        }
+
+        Button(onClick = { count++ }, modifier = Modifier.padding(start = 16.dp, top = 8.dp)) {
+            Text("Sumar")
         }
     }
 }
@@ -106,4 +126,5 @@ private fun composableList(): List<ComposableExample> = listOf(
     ComposableExample(title = "Animated Content size", composable = { AnimatedTextComposable() }),
     ComposableExample(title = "Crossfade Animation", composable = { CrossFadeComposable() }),
     ComposableExample(title = "Animated Visibility - Experimental", composable = { AnimatedVisibilityComposable() }),
+    ComposableExample(title = "Animated Content - Experimental", composable = { AnimatedContentComposable() }),
 )
