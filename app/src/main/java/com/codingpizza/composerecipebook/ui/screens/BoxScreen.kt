@@ -4,6 +4,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Icon
+import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Share
 import androidx.compose.material.icons.rounded.Star
@@ -62,7 +63,10 @@ private fun MyBoxComposable() {
 
 @Composable
 private fun MyBoxComposableWithThreeComposables() {
-    Box(modifier = Modifier.background(Color.Gray).fillMaxSize().height(200.dp)) {
+    Box(modifier = Modifier
+        .background(Color.Gray)
+        .fillMaxSize()
+        .height(200.dp)) {
         RedBox(modifier = Modifier.align(Alignment.TopCenter))
         BlueBox(modifier = Modifier.align(Alignment.TopStart))
         GreenBox(modifier = Modifier.align(Alignment.TopEnd))
@@ -70,28 +74,65 @@ private fun MyBoxComposableWithThreeComposables() {
 }
 
 @Composable
-fun GreenBox(modifier: Modifier) {
-    Box(modifier = modifier.background(Color.Green).size(60.dp)) {
+private fun GreenBox(modifier: Modifier) {
+    Box(modifier = modifier
+        .background(Color.Green)
+        .size(60.dp)) {
 
     }
 }
 
 @Composable
-fun BlueBox(modifier: Modifier) {
-    Box(modifier = modifier.background(Color.Blue).size(60.dp)) {
+private fun BlueBox(modifier: Modifier) {
+    Box(modifier = modifier
+        .background(Color.Blue)
+        .size(60.dp)) {
 
     }
 }
 
 @Composable
-fun RedBox(modifier: Modifier) {
-    Box(modifier = modifier.background(Color.Red).size(60.dp)) {
+private fun RedBox(modifier: Modifier) {
+    Box(modifier = modifier
+        .background(Color.Red)
+        .size(60.dp)) {
 
+    }
+}
+
+@Composable
+private fun BoxWithConstraintsExample() {
+    BoxWithConstraints {
+        if (maxWidth < 400.dp) {
+            Column(modifier = Modifier.fillMaxSize()) {
+                Image(
+                    painter = rememberImagePainter("https://picsum.photos/id/1025/200/300"),
+                    contentDescription = "Image from url",
+                    modifier = Modifier
+                        .padding(top = 8.dp, bottom = 8.dp)
+                        .size(240.dp)
+                        .align(Alignment.CenterHorizontally)
+                )
+                Text("This is a caption")
+            }
+        } else {
+            Row(modifier = Modifier.fillMaxSize()) {
+                Image(
+                    painter = rememberImagePainter("https://picsum.photos/id/1025/200/300"),
+                    contentDescription = "Image from url",
+                    modifier = Modifier
+                        .padding(top = 8.dp, bottom = 8.dp)
+                        .size(240.dp)
+                )
+                Text("This is a caption")
+            }
+        }
     }
 }
 
 @Composable
 private fun composableList(): List<ComposableExample> = listOf(
     ComposableExample(title = "Box",composable = { MyBoxComposable() } ),
-    ComposableExample(title = "Ejemplo de Box",composable = { MyBoxComposableWithThreeComposables() } )
+    ComposableExample(title = "Ejemplo de Box",composable = { MyBoxComposableWithThreeComposables() } ),
+    ComposableExample("Box with Constraints", composable = { BoxWithConstraintsExample() })
 )
