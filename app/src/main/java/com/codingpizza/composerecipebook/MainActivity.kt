@@ -24,7 +24,8 @@ val recipeList: List<Screen> = listOf(
     AnimationScreen,
     ColumnScreen,
     RowScreen,
-    BoxScreen
+    BoxScreen,
+    SnackbarScreen
 )
 
 class MainActivity : ComponentActivity() {
@@ -75,6 +76,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = BoxScreen.screenName) {
                             BoxRecipeScreen()
+                        }
+                        composable(route = SnackbarScreen.screenName) {
+                            SnackbarRecipeScreen()
                         }
                     }
                 }
