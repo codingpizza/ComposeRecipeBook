@@ -28,7 +28,8 @@ val recipeList: List<Screen> = listOf(
     SnackbarScreen,
     DialogScreen,
     TappingScreen,
-    DraggingScreen
+    DraggingScreen,
+    SwipeToDismissScreen
 )
 
 class MainActivity : ComponentActivity() {
@@ -91,6 +92,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable(route = DraggingScreen.screenName) {
                             DraggingScreen()
+                        }
+                        composable(route = SwipeToDismissScreen.screenName) {
+                            SwipeToDismissRecipeScreen()
                         }
                     }
                 }
