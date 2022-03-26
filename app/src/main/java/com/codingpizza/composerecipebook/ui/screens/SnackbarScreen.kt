@@ -1,10 +1,9 @@
 package com.codingpizza.composerecipebook.ui.screens
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.material.*
-import androidx.compose.material.SnackbarResult.*
+import androidx.compose.material.SnackbarResult.ActionPerformed
+import androidx.compose.material.SnackbarResult.Dismissed
 import androidx.compose.runtime.*
-import com.codingpizza.composerecipebook.ui.commoncomposables.RecipeScaffold
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

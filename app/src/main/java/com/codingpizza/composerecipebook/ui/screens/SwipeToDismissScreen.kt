@@ -2,8 +2,14 @@ package com.codingpizza.composerecipebook.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.ExperimentalMaterialApi
+import androidx.compose.material.FractionalThreshold
+import androidx.compose.material.rememberSwipeableState
+import androidx.compose.material.swipeable
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color

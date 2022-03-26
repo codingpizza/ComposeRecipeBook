@@ -9,7 +9,6 @@ import androidx.compose.ui.unit.dp
 import com.codingpizza.composerecipebook.ui.commoncomposables.ComposableExample
 import com.codingpizza.composerecipebook.ui.commoncomposables.ComposableExampleLazyColumn
 import com.codingpizza.composerecipebook.ui.commoncomposables.RecipeScaffold
-import com.codingpizza.composerecipebook.ui.commoncomposables.RecipeSubtitle
 
 private const val ScreenTitle = "Text Composable"
 

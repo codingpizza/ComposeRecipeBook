@@ -19,8 +19,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     buildTypes {
         getByName("release") {
@@ -33,7 +33,7 @@ android {
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_11.toString()
         freeCompilerArgs = listOf(
             "-Xopt-in=kotlin.RequiresOptIn",
             "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
@@ -63,15 +63,15 @@ dependencies {
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.compose.ui:ui:$compose_version")
     implementation("androidx.compose.ui:ui-tooling-preview:$compose_version")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.1")
     implementation("androidx.activity:activity-compose:1.4.0")
     implementation("androidx.compose.material:material:$compose_version")
     implementation("io.coil-kt:coil-compose:1.4.0")
 
 
     //Hilt
-    implementation ("com.google.dagger:hilt-android:2.40.5")
-    kapt ("com.google.dagger:hilt-compiler:2.40.5")
+    implementation ("com.google.dagger:hilt-android:2.41")
+    kapt ("com.google.dagger:hilt-compiler:2.41")
     implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
     implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
     kapt ("androidx.hilt:hilt-compiler:1.0.0")
