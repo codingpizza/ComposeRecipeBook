@@ -1,16 +1,23 @@
-buildscript {
-    repositories {
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
-        classpath("com.android.tools.build:gradle:7.1.1")
-        classpath("com.google.dagger:hilt-android-gradle-plugin:2.40.5")
-    }
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
+plugins {
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.kotlin.kapt) apply false
 }
 
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
+subprojects {
+    repositories {
+        google()
+        gradlePluginPortal()
+        mavenCentral()
+    }
+
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions {
+            freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
+            freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+            jvmTarget = JavaVersion.VERSION_11.toString()
+        }
+    }
 }
