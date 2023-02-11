@@ -3,8 +3,8 @@ package com.codingpizza.composerecipebook.ui.screens
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
+//import androidx.compose.foundation.lazy.GridCells
+//import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -34,13 +34,14 @@ fun GridListScreen() {
 fun GridList(photos: List<Int>) {
     val imageSize = 128.dp
     RecipeSubtitle(content = "GridList - Dependiendo del tamano de la image la lista incluya espacios en blanco")
-    LazyVerticalGrid(
-        cells = GridCells.Adaptive(imageSize)
-    ) {
-        items(photos) { photo ->
-            PhotoItem(photo,imageSize)
-        }
-    }
+//    TODO(Pendiente de Refactorizar)
+//    LazyVerticalGrid(
+//        cells = GridCells.Adaptive(imageSize)
+//    ) {
+//        items(photos) { photo ->
+//            PhotoItem(photo,imageSize)
+//        }
+//    }
 }
 
 @Composable
